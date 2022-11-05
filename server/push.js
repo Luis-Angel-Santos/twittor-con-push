@@ -7,7 +7,7 @@ const vapid = require('./vapid.json');
 const webpush = require('web-push');
 
 webpush.setVapidDetails(
-    'mailto:fernando.herrera85@gmail.com',
+    'mailto:santosangel748@gmail.com',
     vapid.publicKey,
     vapid.privateKey
 );
@@ -41,12 +41,9 @@ module.exports.sendPush = (post) => {
 
 
     suscripciones.forEach((suscripcion, i) => {
-
-
         const pushProm = webpush.sendNotification(suscripcion, JSON.stringify(post))
             .then(console.log('Notificacion enviada '))
             .catch(err => {
-
                 console.log('Notificación falló');
 
                 if (err.statusCode === 410) { // GONE, ya no existe
